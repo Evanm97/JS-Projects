@@ -1,3 +1,3 @@
-﻿# Generates random quotes.
+﻿# JS APP that generates random quote.
 
-![GitHub Logo](/images/logo.png)
+![](Images/quote-generator-pic.jpg)

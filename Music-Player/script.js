@@ -9,8 +9,10 @@ const progressContainer = document.getElementById('progress-container');
 const prevBtn = document.getElementById('prev');
 const playBtn = document.getElementById('play');
 const nextBtn = document.getElementById('next');
+const shuffleBtn = document.getElementById('shuffle');
 
-// tmp test 2
+var shuffle = false;
+
 
 // Music
 const songs = [
@@ -34,7 +36,14 @@ const songs = [
     displayName: 'Front Row (Remix)',
     artist: 'Metric/Jacinto Design',
   },
+  {
+    name: 'spektrem-shine',
+    displayName: 'Spektrem - Shine',
+    artist: 'Spektrem',
+  },
 ];
+
+const songNos = [1, 2, 3, 4, 5];
 
 // Check if Playing
 let isPlaying = false;
@@ -53,6 +62,12 @@ function pauseSong() {
   playBtn.classList.replace('fa-pause', 'fa-play');
   playBtn.setAttribute('title', 'Play');
   music.pause();
+}
+
+// Volume
+function volumeSelect() {
+  document.querySelector("audio").volume = 0;
+  music.setAttribute('volume', 0.5);
 }
 
 // Play or Pause Event Listener
@@ -85,8 +100,28 @@ function nextSong() {
   if (songIndex > songs.length - 1) {
     songIndex = 0;
   }
-  loadSong(songs[songIndex]);
+  if (shuffle = true) {
+    shuffleSong();
+  } else {
+    loadSong(songs[songIndex]);
+    playSong();
+  }
+}
+
+// Shuffle Song
+function shuffleSong() {
+  var int = songNos[Math.floor(Math.random() * songs.length)];
+  loadSong(songs[int]);
   playSong();
+}
+
+function shuffleBoolean() {
+  if (shuffle = false) {
+    shuffle = true;
+  }
+  else {
+    shuffle = false;
+  }
 }
 
 // On Load - Select First Song
@@ -133,3 +168,5 @@ nextBtn.addEventListener('click', nextSong);
 music.addEventListener('ended', nextSong);
 music.addEventListener('timeupdate', updateProgressBar);
 progressContainer.addEventListener('click', setProgressBar);
+
+shuffleBtn.addEventListener('click', shuffleBoolean);

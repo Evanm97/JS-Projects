@@ -1,15 +1,30 @@
-/* Images created by: https://unsplash.com/@pawel_czerwinski */
-
 @import url("https://fonts.googleapis.com/css?family=Spartan:400,700&display=swap");
 
 html {
   box-sizing: border-box;
 }
 
+/* body {
+  margin: 0;
+  min-height: 100vh;
+  background: url("https://images.pexels.com/photos/1655166/pexels-photo-1655166.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260")
+    no-repeat center center;
+
+
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Spartan, sans-serif;
+  font-size: 12px;
+} */
+
 body {
   margin: 0;
   min-height: 100vh;
-  background: #c9ced3;
+  background: url("https://images.pexels.com/photos/1655166/pexels-photo-1655166.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+  background-repeat: no-repeat;
+  background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,12 +32,13 @@ body {
   font-size: 12px;
 }
 
-.player-container {
+.player-container{
   height: 500px;
   width: 400px;
-  background: #e7e7e7;
+  background:inherit;
+  color:#000;
   border-radius: 20px;
-  box-shadow: 0 15px 30px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 15px 30px 5px rgba(0, 0, 0);
 }
 
 .img-container {
@@ -56,7 +72,7 @@ h3 {
 
 /* Progress */
 .progress-container {
-  background: #fff;
+  background: lightslategray;
   border-radius: 5px;
   cursor: pointer;
   margin: 40px 20px;
@@ -65,7 +81,7 @@ h3 {
 }
 
 .progress {
-  background: #242323;
+  background: white;
   border-radius: 5px;
   height: 100%;
   width: 0%;
@@ -83,13 +99,23 @@ h3 {
 .player-controls {
   position: relative;
   top: -15px;
-  left: 120px;
-  width: 200px;
+  left: 50px;
+  width: 100%;
+
+  /* width: 400px; */
 }
 
 .fas {
   font-size: 30px;
-  color: rgb(129, 129, 129);
+  color: white;
+  margin-right: 30px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.fas.fa-redo, .fas.fa-random {
+  font-size: 30px;
+  color: pink;
   margin-right: 30px;
   cursor: pointer;
   user-select: none;
